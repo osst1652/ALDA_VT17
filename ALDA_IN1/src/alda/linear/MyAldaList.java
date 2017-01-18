@@ -132,5 +132,9 @@ public class MyAldaList<E> {
 		return null;
 	}
 	
+//	public String toString(){
+//		
+//	}
+	
 	
 }
