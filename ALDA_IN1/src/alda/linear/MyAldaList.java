@@ -20,7 +20,8 @@ package alda.linear;
  * 
  * @author Filip Fellman <email>
  * 
- * @author Oskar Steinhauf <email>
+ * @author Oskar Steinhauf oskar.steinhauf@gmail.com
+ * 
  * 
  * @version 1
  * @since 2017-01-18
