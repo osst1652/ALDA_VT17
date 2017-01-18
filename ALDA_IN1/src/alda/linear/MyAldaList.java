@@ -37,7 +37,7 @@ public class MyAldaList<E> implements ALDAList<E> {
 	
 	private static class Node<E> {
 		E data;
-		Node next;
+		Node next = null;
 		
 		public Node(E data) {
 			this.data = data;
@@ -114,6 +114,9 @@ public class MyAldaList<E> implements ALDAList<E> {
 		
 //		return items[index];
 		
+		if (siz == 0){
+			throw new IndexOutOfBoundsException();
+		}
 		return null;
 	}
 	
@@ -145,10 +148,10 @@ public class MyAldaList<E> implements ALDAList<E> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public String toString(){
-	return "[]";
+		return "[]";
 	}
-	
 	
 }
