@@ -145,7 +145,7 @@ public class MyAldaList<E> implements ALDAList<E> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+	@Override
 	public String toString(){
 	return "[]";
 	}
