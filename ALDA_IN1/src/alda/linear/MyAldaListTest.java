@@ -73,12 +73,12 @@ public class MyAldaListTest {
 		}
 	}
 
-//	@Test
-//	public void testEmpty() {
-//		list = createNewList();
-//		assertEquals(0, list.size());
-//		assertEquals("[]", list.toString());
-//	}
+	@Test
+	public void testEmpty() {
+		list = createNewList();
+		assertEquals(0, list.size());
+		assertEquals("[]", list.toString());
+	}
 //
 //	@Test(expected = IndexOutOfBoundsException.class)
 //	public void testGetOnEmptyList() {
