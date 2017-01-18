@@ -108,11 +108,11 @@ public class MyAldaListTest {
 		assertEquals("Second", list.get(5));
 	}
 
-//	@Test(expected = IndexOutOfBoundsException.class)
-//	public void testIndexBelowZero() {
-//		list.get(-1);
-//	}
-//
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testIndexBelowZero() {
+		list.get(-1);
+	}
+
 //	@Test(expected = IndexOutOfBoundsException.class)
 //	public void testIndexAboveMax() {
 //		list.get(5);
