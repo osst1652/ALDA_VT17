@@ -30,7 +30,15 @@ package alda.linear;
  * 
  * 
  */
-public class MyAldaList {
+
+public class MyAldaList  {
 	
 
+	/*
+	 * Testar lägga till något för github
+	 * */
+	static String createNewList = null;
+	static int createIntegerList = 0;
+	
+	
 }
