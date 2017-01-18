@@ -50,10 +50,14 @@ public class MyAldaList<E> {
 	private Node<E> last;
 	
 	//Storlek på listan. DEFAULT_CAPACITY i kursboken
-	private static final int listSize = 10;
+	
+//	Denna static metod blir ger fel i testfallen
+//	private static final int listSize = 10;
 	
 	//E är objekten i listan.theItems i kursboken
-	private E [] items;
+	
+//	Ger också fel i första testfallet
+//	private E [] items;
 	
 	//siz är för storlekskontroll. theSize i kursboken
 	private int siz;
@@ -69,7 +73,7 @@ public class MyAldaList<E> {
 //	}
 	
 	public void add(int index, E element){
-		items[index] = element;
+//		items[index] = element;
 		
 	}
 	
@@ -89,12 +93,13 @@ public class MyAldaList<E> {
 		/*
 		 * Ur kursboken. 
 		 * */
-		E borttaget = items[index];
-		for(int i = index; i < siz; i++){
-			items[i] = items[i+1];
-		}
-		siz--;
-		return borttaget;
+//		E borttaget = items[index];
+//		for(int i = index; i < siz; i++){
+//			items[i] = items[i+1];
+//		}
+//		siz--;
+//		return borttaget;
+		return null;
 	}
 	
 
@@ -105,7 +110,9 @@ public class MyAldaList<E> {
 
 	public E get(int index){
 		
-		return items[index];
+//		return items[index];
+		
+		return null;
 	}
 
 	public boolean contains(E element){
