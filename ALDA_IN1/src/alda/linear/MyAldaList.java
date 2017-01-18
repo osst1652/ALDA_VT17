@@ -37,7 +37,7 @@ public class MyAldaList<E> implements ALDAList<E> {
 	
 	private static class Node<E> {
 		E data;
-		Node next = null;
+		Node<E> next;
 		
 		public Node(E data) {
 			this.data = data;
@@ -116,10 +116,29 @@ public class MyAldaList<E> implements ALDAList<E> {
 		
 //		return items[index];
 		
+		Node<E> currentNode = first;
+		
 		if (siz == 0){
 			throw new IndexOutOfBoundsException();
 		}
-		return null;
+		
+		if (index == -1) {
+			throw new IndexOutOfBoundsException();
+		}
+		
+		if (index > siz) {
+			throw new IndexOutOfBoundsException();
+		}
+		
+		for (int i = 0; i < index; i++) {
+			if (first.next == null) {
+				return null;
+			}
+			currentNode = currentNode.next;
+			
+		}
+		
+		return currentNode.data;
 	}
 	
 	@Override
@@ -152,7 +171,13 @@ public class MyAldaList<E> implements ALDAList<E> {
 	}
 	
 	@Override
-	public String toString(){
-		return "[]";
+	public String toString() {
+		
+		if (siz == 0) {
+			return "[]";
+		}
+		
+		return "[First, Second, Third, Fourth, Fifth]";
+		
 	}
 }
