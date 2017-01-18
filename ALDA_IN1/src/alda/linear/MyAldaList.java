@@ -35,6 +35,20 @@ import java.util.Iterator;
 
 public class MyAldaList<E> {
 	
+	private static class Node<E> {
+		E data;
+		Node next;
+		
+		public Node(E data) {
+			this.data = data;
+		}
+	}
+	
+	//Från föreläsningsbilderna
+	
+	private Node<E> first;
+	private Node<E> last;
+	
 	//Storlek på listan. DEFAULT_CAPACITY i kursboken
 	private static final int listSize = 10;
 	
@@ -50,13 +64,25 @@ public class MyAldaList<E> {
 	 * liknande versioner i kursboken. 
 	 * 
 	 * */
-	public void add(E element){
-		
-	}
+//	public void add(E element){
+//		
+//	}
 	
 	public void add(int index, E element){
 		items[index] = element;
 		
+	}
+	
+	//denna från föreläsningsbilderna också
+	
+	public void add(E data){
+		if (first == null){
+			first = new Node<E>(data);
+			last = first;
+		}else {
+			last.next = new Node<E>(data);
+			last = last.next;
+		}
 	}
 
 	public E remove(int index){
