@@ -1,5 +1,7 @@
 package alda.linear;
 
+import java.util.Iterator;
+
 /**
  * <h2>Javadoc för inlämning 1 </h1>
  * Taget från inlämningen:<p>
@@ -31,14 +33,76 @@ package alda.linear;
  * 
  */
 
-public class MyAldaList  {
+public class MyAldaList<E> {
+	
+	//Storlek på listan. DEFAULT_CAPACITY i kursboken
+	private static final int listSize = 10;
+	
+	//E är objekten i listan.theItems i kursboken
+	private E [] items;
+	
+	//siz är för storlekskontroll. theSize i kursboken
+	private int siz;
+
+	
+	/*
+	 * add 1 och add 2 funktionerna har jag hittat
+	 * liknande versioner i kursboken. 
+	 * 
+	 * */
+	public void add(E element){
+		
+	}
+	
+	public void add(int index, E element){
+		items[index] = element;
+		
+	}
+
+	public E remove(int index){
+		/*
+		 * Ur kursboken. 
+		 * */
+		E borttaget = items[index];
+		for(int i = index; i < siz; i++){
+			items[i] = items[i+1];
+		}
+		siz--;
+		return borttaget;
+	}
 	
 
-	/*
-	 * Testar lägga till något för github
-	 * */
-	static String createNewList = null;
-	static int createIntegerList = 0;
+	public boolean remove(E element){
+		
+		return false;
+	}
+
+	public E get(int index){
+		
+		return items[index];
+	}
+
+	public boolean contains(E element){
+		
+		return false;
+	}
+
+	public int indexOf(E element){
+		
+		return 0;
+	}
+
+	public void clear(){
+		siz = 0;
+		
+	}
+
+	public int size(){
+		return 0;
+	}
+
+
+
 	
 	
 }
