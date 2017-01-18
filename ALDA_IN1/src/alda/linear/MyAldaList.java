@@ -106,11 +106,18 @@ public class MyAldaList<E> implements ALDAList<E> {
 //		}
 //		siz--;
 //		return borttaget;
-		E borttaget;
 		
-		if(index == 2){
-			return borttaget;
+		Node<E> currentNode = first;
+		
+		for (int i = 0; i < index; i++) {
+			if (first.next == null) {
+				return null;
+			}
+			Node<E> temp = currentNode.next;
+			currentNode = temp;
 		}
+		siz--;
+		return currentNode.data;
 	}
 	
 	@Override
