@@ -18,7 +18,7 @@ import java.util.Iterator;
  * 4:<p>
  * Filerna ska innehålla namn och epostadresser till samtliga gruppmedlemmar i en kommentar högst upp. <b>CHECK</b>
  * <p>
- * @author Erik Svärdson <email>
+ * @author Erik Svärdson svardson@gmail.com
  * 
  * @author Filip Fellman filip.fellman@gmail.com
  * 
