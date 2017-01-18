@@ -33,7 +33,7 @@ import java.util.Iterator;
  * 
  */
 
-public class MyAldaList<E> {
+public class MyAldaList<E> implements ALDAList<E> {
 	
 	private static class Node<E> {
 		E data;
@@ -71,7 +71,7 @@ public class MyAldaList<E> {
 //	public void add(E element){
 //		
 //	}
-	
+	@Override
 	public void add(int index, E element){
 //		items[index] = element;
 		
@@ -79,6 +79,7 @@ public class MyAldaList<E> {
 	
 	//denna från föreläsningsbilderna också
 	
+	@Override
 	public void add(E data){
 		if (first == null){
 			first = new Node<E>(data);
@@ -88,7 +89,7 @@ public class MyAldaList<E> {
 			last = last.next;
 		}
 	}
-
+	@Override
 	public E remove(int index){
 		/*
 		 * Ur kursboken. 
@@ -102,39 +103,45 @@ public class MyAldaList<E> {
 		return null;
 	}
 	
-
+	@Override
 	public boolean remove(E element){
 		
 		return false;
 	}
-
+	
+	@Override
 	public E get(int index){
 		
 //		return items[index];
 		
 		return null;
 	}
-
+	
+	@Override
 	public boolean contains(E element){
 		
 		return false;
 	}
-
+	
+	@Override
 	public int indexOf(E element){
 		
 		return 0;
 	}
-
+	
+	@Override
 	public void clear(){
 		siz = 0;
 		
 	}
-
+	
+	@Override
 	public int size(){
 		return 0;
 	}
-
-	public Iterator<String> iterator() {
+	
+	@Override
+	public Iterator<E> iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}
