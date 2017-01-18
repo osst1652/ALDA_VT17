@@ -127,8 +127,10 @@ public class MyAldaList<E> {
 		return 0;
 	}
 
-
-
+	public Iterator<String> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
