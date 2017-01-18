@@ -84,9 +84,11 @@ public class MyAldaList<E> implements ALDAList<E> {
 		if (first == null){
 			first = new Node<E>(data);
 			last = first;
+			siz++;
 		}else {
 			last.next = new Node<E>(data);
 			last = last.next;
+			siz++;
 		}
 	}
 	@Override
@@ -137,7 +139,7 @@ public class MyAldaList<E> implements ALDAList<E> {
 	
 	@Override
 	public int size(){
-		return 0;
+		return siz;
 	}
 	
 	@Override
@@ -149,6 +151,5 @@ public class MyAldaList<E> implements ALDAList<E> {
 	public String toString(){
 	return "[]";
 	}
-	
-	
+
 }
