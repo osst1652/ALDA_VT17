@@ -33,10 +33,15 @@ import org.junit.Test;
 public class MyAldaListTest {
 	// These two methods are the only places in the code that mentions the name
 	// of your class.
+	private static MyAldaList<String> createNewList() {
+		return new MyAldaList<String>();
 	}
 
+	private static MyAldaList<Integer> createIntegerList() {
+		return new MyAldaList<Integer>();
 	}
 
+	private MyAldaList<String> list = createNewList();
 
 	private void testField(java.lang.reflect.Field f) {
 		assertTrue("All attributes should (probably) be private ",
@@ -399,6 +404,13 @@ public class MyAldaListTest {
 
 	}
 
+//	@Test
+//	public void testIsIterable() {
+//		for (String s : list)
+//			// This code is not necessay byt removes a warning that s isn't
+//			// used.
+//			s.length();
+//	}
 
 	@Test
 	public void testBasicIteration() {
@@ -489,6 +501,7 @@ public class MyAldaListTest {
 
 	@Test
 	public void testOtherTypesOfData() {
+		MyAldaList<Integer> l = createIntegerList();
 		l.add(5);
 		l.add(new Integer(10));
 		assertEquals(new Integer(5), l.get(0));
