@@ -146,9 +146,9 @@ public class MyAldaList<E> implements ALDAList<E> {
 		return null;
 	}
 	
-//	public String toString(){
-//		
-//	}
+	public String toString(){
+	return "[]";
+	}
 	
 	
 }
