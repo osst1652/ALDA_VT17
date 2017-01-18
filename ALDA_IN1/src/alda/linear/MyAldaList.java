@@ -3,22 +3,22 @@ package alda.linear;
 import java.util.Iterator;
 
 /**
- * <h2>Javadoc för inlämning 1 </h1>
- * Taget från inlämningen:<p>
+ * <h2>Javadoc fÃ¶r inlÃ¤mning 1 </h1>
+ * Taget frÃ¥n inlÃ¤mningen:<p>
  * 1:<p>
- * Namnet på er listklass ska vara MyAldaList och den ska ligga i samma paket som interfacet: alda.linear.<b>CHECK</b> <p>
+ * Namnet pÃ¥ er listklass ska vara MyAldaList och den ska ligga i samma paket som interfacet: alda.linear.<b>CHECK</b> <p>
  * 
  * 2:<p>
- * Det ni ska lämna in på den här uppgiften är två saker: källkoden för er listklass och för nodklassen. <p>
- * Detta blir alltså en eller två javafiler beroende på om ni placerar nodklassen som en inre klass eller inte.<p> 
+ * Det ni ska lÃ¤mna in pÃ¥ den hÃ¤r uppgiften Ã¤r tvÃ¥ saker: kÃ¤llkoden fÃ¶r er listklass och fÃ¶r nodklassen. <p>
+ * Detta blir alltsÃ¥ en eller tvÃ¥ javafiler beroende pÃ¥ om ni placerar nodklassen som en inre klass eller inte.<p> 
  * 
  * 3:<p>
- * Filerna ska inte vara packade på något sätt vid inlämningen. <p>
+ * Filerna ska inte vara packade pÃ¥ nÃ¥got sÃ¤tt vid inlÃ¤mningen. <p>
  * 
  * 4:<p>
- * Filerna ska innehålla namn och epostadresser till samtliga gruppmedlemmar i en kommentar högst upp. <b>CHECK</b>
+ * Filerna ska innehÃ¥lla namn och epostadresser till samtliga gruppmedlemmar i en kommentar hÃ¶gst upp. <b>CHECK</b>
  * <p>
- * @author Erik Svärdson svardson@gmail.com
+ * @author Erik SvÃ¤rdson svardson@gmail.com
  * 
  * @author Filip Fellman filip.fellman@gmail.com
  * 
@@ -44,22 +44,22 @@ public class MyAldaList<E> implements ALDAList<E> {
 		}
 	}
 	
-	//Från föreläsningsbilderna
+	//FrÃ¥n fÃ¶relÃ¤sningsbilderna
 	
 	private Node<E> first;
 	private Node<E> last;
 	
-	//Storlek på listan. DEFAULT_CAPACITY i kursboken
+	//Storlek pÃ¥ listan. DEFAULT_CAPACITY i kursboken
 	
 //	Denna static metod blir ger fel i testfallen
 //	private static final int listSize = 10;
 	
-	//E är objekten i listan.theItems i kursboken
+	//E Ã¤r objekten i listan.theItems i kursboken
 	
-//	Ger också fel i första testfallet
+//	Ger ocksÃ¥ fel i fÃ¶rsta testfallet
 //	private E [] items;
 	
-	//siz är för storlekskontroll. theSize i kursboken
+	//siz Ã¤r fÃ¶r storlekskontroll. theSize i kursboken
 	private int siz;
 
 	
@@ -77,16 +77,18 @@ public class MyAldaList<E> implements ALDAList<E> {
 		
 	}
 	
-	//denna från föreläsningsbilderna också
+	//denna frÃ¥n fÃ¶relÃ¤sningsbilderna ocksÃ¥
 	
 	@Override
 	public void add(E data){
 		if (first == null){
 			first = new Node<E>(data);
 			last = first;
+			siz++;
 		}else {
 			last.next = new Node<E>(data);
 			last = last.next;
+			siz++;
 		}
 	}
 	@Override
@@ -140,7 +142,7 @@ public class MyAldaList<E> implements ALDAList<E> {
 	
 	@Override
 	public int size(){
-		return 0;
+		return siz;
 	}
 	
 	@Override
@@ -153,5 +155,4 @@ public class MyAldaList<E> implements ALDAList<E> {
 	public String toString(){
 		return "[]";
 	}
-	
 }

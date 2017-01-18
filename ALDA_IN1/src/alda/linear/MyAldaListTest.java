@@ -86,28 +86,28 @@ public class MyAldaListTest {
 		list.get(0);
 	}
 //
-//	@Before
-//	public void setUp() {
-//		list.add("First");
-//		list.add("Second");
-//		list.add("Third");
-//		list.add("Fourth");
-//		list.add("Fifth");
-//	}
-//
-//	@Test
-//	public void testSimpleMethodsOnDefaultList() {
-//		assertEquals(5, list.size());
-//		assertEquals("First", list.get(0));
-//		assertEquals("Third", list.get(2));
-//		assertEquals("Fifth", list.get(4));
-//		assertEquals("[First, Second, Third, Fourth, Fifth]", list.toString());
-//
-//		list.add("Second");
-//		assertEquals(6, list.size());
-//		assertEquals("Second", list.get(5));
-//	}
-//
+	@Before
+	public void setUp() {
+		list.add("First");
+		list.add("Second");
+		list.add("Third");
+		list.add("Fourth");
+		list.add("Fifth");
+	}
+
+	@Test
+	public void testSimpleMethodsOnDefaultList() {
+		assertEquals(5, list.size());
+		assertEquals("First", list.get(0));
+		assertEquals("Third", list.get(2));
+		assertEquals("Fifth", list.get(4));
+		assertEquals("[First, Second, Third, Fourth, Fifth]", list.toString());
+
+		list.add("Second");
+		assertEquals(6, list.size());
+		assertEquals("Second", list.get(5));
+	}
+
 //	@Test(expected = IndexOutOfBoundsException.class)
 //	public void testIndexBelowZero() {
 //		list.get(-1);
