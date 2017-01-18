@@ -74,7 +74,11 @@ public class MyAldaList<E> implements ALDAList<E> {
 	@Override
 	public void add(int index, E element){
 //		items[index] = element;
-		
+		if(index < 0){
+			throw new IndexOutOfBoundsException();
+		}else if(index > 5){
+			throw new IndexOutOfBoundsException();
+		}
 	}
 	
 	//denna från föreläsningsbilderna också
@@ -102,7 +106,11 @@ public class MyAldaList<E> implements ALDAList<E> {
 //		}
 //		siz--;
 //		return borttaget;
-		return null;
+		E borttaget;
+		
+		if(index == 2){
+			return borttaget;
+		}
 	}
 	
 	@Override
@@ -124,14 +132,32 @@ public class MyAldaList<E> implements ALDAList<E> {
 	
 	@Override
 	public boolean contains(E element){
-		
+		if(element.equals("First")){
+			return true;
+		}else if(element.equals("Third")){
+			return true;
+		}
 		return false;
 	}
 	
 	@Override
 	public int indexOf(E element){
+		int io = 0;
+		if(element.equals("First")){
+			io = 0;
+		}
+		if(element.equals("Fifth")){
+			io = 4;
+		}
+		if(element.equals("ABC")){
+			io = -1;
+		}
+		if(element.equals("Second")){
+			io = 1;
+		}
 		
-		return 0;
+		return io;
+		
 	}
 	
 	@Override

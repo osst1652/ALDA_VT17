@@ -130,16 +130,16 @@ public class MyAldaListTest {
 //		assertEquals("[A, First, C, Second, Third, Fourth, Fifth, B]", list.toString());
 //	}
 //
-//	@Test(expected = IndexOutOfBoundsException.class)
-//	public void testAddIndexBelowZero() {
-//		list.add(-1, "ABC");
-//	}
-//
-//	@Test(expected = IndexOutOfBoundsException.class)
-//	public void testAddIndexAboveMax() {
-//		list.add(6, "ABC");
-//	}
-//
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testAddIndexBelowZero() {
+		list.add(-1, "ABC");
+	}
+
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testAddIndexAboveMax() {
+		list.add(6, "ABC");
+	}
+
 //	@Test
 //	public void testClear() {
 //		list.clear();
@@ -150,39 +150,39 @@ public class MyAldaListTest {
 //		assertEquals("First", list.get(1));
 //		assertEquals("Second", list.get(0));
 //	}
-//
-//	@Test
-//	public void testContains() {
-//		assertTrue(list.contains("First"));
-//		assertTrue(list.contains("Third"));
-//		assertFalse(list.contains("ABC"));
-//		assertFalse(list.contains(""));
-//	}
-//
-//	@Test
-//	public void testIndexOf() {
-//		assertEquals(0, list.indexOf("First"));
-//		assertEquals(4, list.indexOf("Fifth"));
-//		assertEquals(-1, list.indexOf("ABC"));
-//		list.add("Second");
-//		assertEquals(1, list.indexOf("Second"));
-//	}
-//
-//	@Test
-//	public void testRemoveWithIndex() {
-//		assertEquals("Third", list.remove(2));
-//		assertEquals(4, list.size());
-//		assertEquals("Second", list.get(1));
-//		assertEquals("Fourth", list.get(2));
-//
-//		assertEquals("First", list.remove(0));
-//		assertEquals(3, list.size());
-//		assertEquals("Second", list.get(0));
-//
-//		assertEquals("Fifth", list.remove(2));
-//		assertEquals(2, list.size());
-//		assertEquals("Fourth", list.get(1));
-//	}
+
+	@Test
+	public void testContains() {
+		assertTrue(list.contains("First"));
+		assertTrue(list.contains("Third"));
+		assertFalse(list.contains("ABC"));
+		assertFalse(list.contains(""));
+	}
+
+	@Test
+	public void testIndexOf() {
+		assertEquals(0, list.indexOf("First"));
+		assertEquals(4, list.indexOf("Fifth"));
+		assertEquals(-1, list.indexOf("ABC"));
+		list.add("Second");
+		assertEquals(1, list.indexOf("Second"));
+	}
+
+	@Test
+	public void testRemoveWithIndex() {
+		assertEquals("Third", list.remove(2));
+		assertEquals(4, list.size());
+		assertEquals("Second", list.get(1));
+		assertEquals("Fourth", list.get(2));
+
+		assertEquals("First", list.remove(0));
+		assertEquals(3, list.size());
+		assertEquals("Second", list.get(0));
+
+		assertEquals("Fifth", list.remove(2));
+		assertEquals(2, list.size());
+		assertEquals("Fourth", list.get(1));
+	}
 //
 //	@Test
 //	public void testRemoveAtEnd() {
