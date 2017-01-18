@@ -20,7 +20,7 @@ import java.util.Iterator;
  * <p>
  * @author Erik Svärdson <email>
  * 
- * @author Filip Fellman filip.fellman@gmail.com
+ * @author Filip Fellman filip.fellman@gmail.comm
  * 
  * @author Oskar Steinhauf oskar.steinhauf@gmail.com
  * 
