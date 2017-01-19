@@ -28,14 +28,17 @@ import java.util.Iterator;
  * @version 1
  * @since 2017-01-18
  *
- *
- * TEST i lokal osst1652 branch.
+
  * 
  * 
  */
 
 public class MyAldaList<E> implements ALDAList<E> {
 	
+	/*
+	 * Privat klass som presenterar en nod i listan.
+	 *
+	 */
 	private static class Node<E> {
 		E data;
 		Node<E> next;
@@ -47,12 +50,12 @@ public class MyAldaList<E> implements ALDAList<E> {
 	
 	//FrÃ¥n fÃ¶relÃ¤sningsbilderna
 	
-	private Node<E> first;
-	private Node<E> last;
+	private Node<E> first; 	//head
+	private Node<E> last;	//tail
 	
 	
-	private int siz;
-
+	private int siz; //Antalet index i listan
+	
 	
 	@Override
 	public void add(int index, E element){
@@ -80,15 +83,6 @@ public class MyAldaList<E> implements ALDAList<E> {
 	}
 	@Override
 	public E remove(int index){
-		/*
-		 * Ur kursboken. 
-		 * */
-//		E borttaget = items[index];
-//		for(int i = index; i < siz; i++){
-//			items[i] = items[i+1];
-//		}
-//		siz--;
-//		return borttaget;
 		
 		Node<E> currentNode = first;
 		
@@ -103,12 +97,32 @@ public class MyAldaList<E> implements ALDAList<E> {
 		return currentNode.data;
 	}
 	
+	
 	@Override
 	public boolean remove(E element){
 		
-		return false;
+		/*
+		 * Returns:	true if this list contained the specified element
+		 * Uppgift: Ta bort första instansen av objektet från denna lista. 
+		 * */
+		
+		int index = indexOf(element);
+		
+		if(index != -1){
+			remove(index);
+			return true;
+		}
+		else{
+			return false;
+		}
+
+
 	}
 	
+	
+	/*
+	 *Ska returnera objektet(element) vid den specifika positionen. 
+	 */
 	@Override
 	public E get(int index){
 
@@ -136,6 +150,10 @@ public class MyAldaList<E> implements ALDAList<E> {
 		
 		return currentNode.data;
 	}
+	
+	/*
+	 * Ska returnera true om listan har det specifika elementet. 
+	 * */
 	
 	@Override
 	public boolean contains(E element){
@@ -167,20 +185,54 @@ public class MyAldaList<E> implements ALDAList<E> {
 		
 	}
 	
+
+	
 	@Override
 	public void clear(){
+		/*
+		 * Två alternativ no1 
+		 * */
+		
+		/*
+		 * Alternativ no 1.
+		 * Ta bort allt från listan
+		 * och sen gör storleken till 0.
+		 * 
+		 * */
+		for(int i = 0; i< siz;i++){
+			/*
+			 *Ta alla objekt i loopen och gör dem till null. Kräver en variabel som tar emot
+			 */
+			 //behållare[i] = null; 
+		}
+		//siz = 0;
+		
+		/*
+		 * Alternativ 2
+		 * Gör noderna noll och sen sätt storleken noll. 
+		 * 
+		 * */
+		first = last = null;
 		siz = 0;
 		
 	}
 	
 	@Override
 	public int size(){
+		
+		//Behöver bara returnera storleken på int variabeln.
 		return siz;
 	}
 	
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
+		
+		/*
+		 * Ska returnera iteratorn.
+		 * 
+		 * Finns det någon iterator än? Borde iteratorn vara en klass för sig?
+		 * */
+		
 		return null;
 	}
 	
