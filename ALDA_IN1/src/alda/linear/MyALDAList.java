@@ -42,6 +42,7 @@ public class MyALDAList<E> implements ALDAList<E> {
 		
 		public Node(E data) {
 			this.data = data;
+			this.next = null;
 		}
 	}
 	
@@ -57,7 +58,18 @@ public class MyALDAList<E> implements ALDAList<E> {
 	@Override
 	public void add(int index, E element){
 		
-		Node<E> before;
+		Node<E> before = new Node<E>(element);
+		
+		before.next = first;
+		
+		before = first;
+		
+		Node<E> after = new Node<E>(element);
+		
+		last.next = after;
+		
+		after = last;
+		
 		
 		if(index < 0 || index >= siz){
 			throw new IndexOutOfBoundsException();
