@@ -34,7 +34,7 @@ import java.util.Iterator;
  * 
  */
 
-public class MyAldaList<E> implements ALDAList<E> {
+public class MyALDAList<E> implements ALDAList<E> {
 	
 	private static class Node<E> {
 		E data;
