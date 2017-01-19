@@ -30,18 +30,18 @@ import org.junit.Test;
  * 
  * @author Henrik
  */
-public class MyAldaListTest {
+public class ALDAListTest {
 	// These two methods are the only places in the code that mentions the name
 	// of your class.
-	private static MyAldaList<String> createNewList() {
-		return new MyAldaList<String>();
+	private static MyALDAList<String> createNewList() {
+		return new MyALDAList<String>();
 	}
 
-	private static MyAldaList<Integer> createIntegerList() {
-		return new MyAldaList<Integer>();
+	private static MyALDAList<Integer> createIntegerList() {
+		return new MyALDAList<Integer>();
 	}
 
-	private MyAldaList<String> list = createNewList();
+	private MyALDAList<String> list = createNewList();
 
 	private void testField(java.lang.reflect.Field f) {
 		assertTrue("All attributes should (probably) be private ",
