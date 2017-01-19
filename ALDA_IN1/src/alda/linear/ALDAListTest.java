@@ -113,23 +113,23 @@ public class ALDAListTest {
 		list.get(-1);
 	}
 
-//	@Test(expected = IndexOutOfBoundsException.class)
-//	public void testIndexAboveMax() {
-//		list.get(5);
-//	}
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testIndexAboveMax() {
+		list.get(5);
+	}
 //
-//	@Test
-//	public void addWithIndex() {
-//		list.add(0, "A");
-//		list.add(6, "B");
-//		list.add(2, "C");
-//		assertEquals(8, list.size());
-//		assertEquals("A", list.get(0));
-//		assertEquals("C", list.get(2));
-//		assertEquals("B", list.get(7));
-//		assertEquals("[A, First, C, Second, Third, Fourth, Fifth, B]", list.toString());
-//	}
-//
+	@Test
+	public void addWithIndex() {
+		list.add(0, "A");
+		list.add(6, "B");
+		list.add(2, "C");
+		assertEquals(8, list.size());
+		assertEquals("A", list.get(0));
+		assertEquals("C", list.get(2));
+		assertEquals("B", list.get(7));
+		assertEquals("[A, First, C, Second, Third, Fourth, Fifth, B]", list.toString());
+	}
+
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void testAddIndexBelowZero() {
 		list.add(-1, "ABC");
@@ -168,21 +168,21 @@ public class ALDAListTest {
 		assertEquals(1, list.indexOf("Second"));
 	}
 
-	@Test
-	public void testRemoveWithIndex() {
-		assertEquals("Third", list.remove(2));
-		assertEquals(4, list.size());
-		assertEquals("Second", list.get(1));
-		assertEquals("Fourth", list.get(2));
-
-		assertEquals("First", list.remove(0));
-		assertEquals(3, list.size());
-		assertEquals("Second", list.get(0));
-
-		assertEquals("Fifth", list.remove(2));
-		assertEquals(2, list.size());
-		assertEquals("Fourth", list.get(1));
-	}
+//	@Test
+//	public void testRemoveWithIndex() {
+//		assertEquals("Third", list.remove(2));
+//		assertEquals(4, list.size());
+//		assertEquals("Second", list.get(1));
+//		assertEquals("Fourth", list.get(2));
+//
+//		assertEquals("First", list.remove(0));
+//		assertEquals(3, list.size());
+//		assertEquals("Second", list.get(0));
+//
+//		assertEquals("Fifth", list.remove(2));
+//		assertEquals(2, list.size());
+//		assertEquals("Fourth", list.get(1));
+//	}
 //
 //	@Test
 //	public void testRemoveAtEnd() {

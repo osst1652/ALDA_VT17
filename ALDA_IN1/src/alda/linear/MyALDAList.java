@@ -56,12 +56,12 @@ public class MyALDAList<E> implements ALDAList<E> {
 	
 	@Override
 	public void add(int index, E element){
-//		items[index] = element;
-		if(index < 0){
+		
+		Node<E> before;
+		
+		if(index < 0 || index >= siz){
 			throw new IndexOutOfBoundsException();
-		}else if(index > 5){
-			throw new IndexOutOfBoundsException();
-		}
+		}		
 	}
 	
 	//denna från föreläsningsbilderna också
@@ -114,15 +114,7 @@ public class MyALDAList<E> implements ALDAList<E> {
 
 		Node<E> currentNode = first;
 		
-		if (siz == 0){
-			throw new IndexOutOfBoundsException();
-		}
-		
-		if (index == -1) {
-			throw new IndexOutOfBoundsException();
-		}
-		
-		if (index > siz) {
+		if (size() == 0 || index == -1 || index >= size()){
 			throw new IndexOutOfBoundsException();
 		}
 		
@@ -187,7 +179,7 @@ public class MyALDAList<E> implements ALDAList<E> {
 	@Override
 	public String toString() {
 		
-		if (siz == 0) {
+		if (size() == 0) {
 			return "[]";
 		}
 		
