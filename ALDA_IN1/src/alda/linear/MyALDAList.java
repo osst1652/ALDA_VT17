@@ -35,7 +35,9 @@ import java.util.Iterator;
  */
 
 public class MyALDAList<E> implements ALDAList<E> {
-	
+	/*
+	 * NODklassen
+	 * */
 	private static class Node<E> {
 		E data;
 		Node<E> next;
@@ -48,8 +50,8 @@ public class MyALDAList<E> implements ALDAList<E> {
 	
 	//Från föreläsningsbilderna
 	
-	private Node<E> first;
-	private Node<E> last;
+	private Node<E> first; 	//head
+	private Node<E> last;	//tail
 	
 	
 	private int siz;
