@@ -35,9 +35,11 @@ import java.util.Iterator;
  */
 
 public class MyALDAList<E> implements ALDAList<E> {
+	
 	/*
-	 * NODklassen
-	 * */
+	 * Privat klass som presenterar en nod i listan.
+	 *
+	 */
 	private static class Node<E> {
 		E data;
 		Node<E> next;
@@ -120,9 +122,26 @@ public class MyALDAList<E> implements ALDAList<E> {
 	@Override
 	public boolean remove(E element){
 		
-		return false;
+		/*
+		 * Returnerar true ifall den listan innehåller specifika elementet
+		 * Uppgiften: Ta bort första instanstansen av objektet från denna lista.
+		 * */
+		
+		int index = indexOf(element);
+		
+		if(index != -1){
+			remove(index);
+			return true;
+		}
+		else{
+			return false;
+		}
+		
 	}
 	
+	/*
+	 *Ska returnera objektet(element) vid den specifika positionen. 
+	 */
 	@Override
 	public E get(int index){
 
@@ -142,7 +161,9 @@ public class MyALDAList<E> implements ALDAList<E> {
 		
 		return currentNode.data;
 	}
-	
+	/*
+	 * Ska returnera true om listan har det specifika elementet. 
+	 * */
 	@Override
 	public boolean contains(E element){
 		if(element.equals("First")){
@@ -175,12 +196,34 @@ public class MyALDAList<E> implements ALDAList<E> {
 	
 	@Override
 	public void clear(){
+		/*
+		 * Två alternativ möjliga
+		 * */
+		//Alternativ 1
+		/*
+		 * Ta bort allt från listan och sen gör storleken till  noll
+		 * 
+		 * */
+		for(int i = 0; i < siz; i++){
+			/*
+			 * Ta alla objekt i loopen och gör dem till null. Kräver en varial som tar emot.
+			 * */
+			//behållare[i] = null
+		}
+		//siz =0;
+		
+		/*
+		 * Alternativ 2
+		 * */
+		first = last = null;
+		
 		siz = 0;
 		
 	}
 	
 	@Override
 	public int size(){
+		//Behöver bara returnera storleken på int variabeln.
 		return siz;
 	}
 	
