@@ -49,28 +49,10 @@ public class MyAldaList<E> implements ALDAList<E> {
 	private Node<E> first;
 	private Node<E> last;
 	
-	//Storlek på listan. DEFAULT_CAPACITY i kursboken
 	
-//	Denna static metod blir ger fel i testfallen
-//	private static final int listSize = 10;
-	
-	//E är objekten i listan.theItems i kursboken
-	
-//	Ger också fel i första testfallet
-//	private E [] items;
-	
-	//siz är för storlekskontroll. theSize i kursboken
 	private int siz;
 
 	
-	/*
-	 * add 1 och add 2 funktionerna har jag hittat
-	 * liknande versioner i kursboken. 
-	 * 
-	 * */
-//	public void add(E element){
-//		
-//	}
 	@Override
 	public void add(int index, E element){
 //		items[index] = element;
@@ -128,9 +110,7 @@ public class MyAldaList<E> implements ALDAList<E> {
 	
 	@Override
 	public E get(int index){
-		
-//		return items[index];
-		
+
 		Node<E> currentNode = first;
 		
 		if (siz == 0){
