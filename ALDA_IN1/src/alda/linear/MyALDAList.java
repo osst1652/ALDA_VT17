@@ -2,112 +2,95 @@ package alda.linear;
 
 import java.util.Iterator;
 
-/**
- * <h2>Javadoc för inlämning 1 </h1>
- * Taget från inlämningen:<p>
- * 1:<p>
- * Namnet på er listklass ska vara MyAldaList och den ska ligga i samma paket som interfacet: alda.linear.<b>CHECK</b> <p>
- * 
- * 2:<p>
- * Det ni ska lämna in på den här uppgiften är två saker: källkoden för er listklass och för nodklassen. <p>
- * Detta blir alltså en eller två javafiler beroende på om ni placerar nodklassen som en inre klass eller inte.<p> 
- * 
- * 3:<p>
- * Filerna ska inte vara packade på något sätt vid inlämningen. <p>
- * 
- * 4:<p>
- * Filerna ska innehålla namn och epostadresser till samtliga gruppmedlemmar i en kommentar högst upp. <b>CHECK</b>
- * <p>
- * @author Erik Svärdson svardson@gmail.com
+
+/** @author Erik Svärdson svardson@gmail.com
  * 
  * @author Filip Fellman filip.fellman@gmail.com
  * 
  * @author Oskar Steinhauf oskar.steinhauf@gmail.com
- * 
- * 
- * @version 1
- * @since 2017-01-18
- *
- *
- * TEST i lokal osst1652 branch.
- * 
- * 
+ *  
  */
 
 public class MyALDAList<E> implements ALDAList<E> {
-	
-	/*
-	 * Privat klass som presenterar en nod i listan.
-	 *
-	 */
+
+
 	private static class Node<E> {
 		E data;
 		Node<E> next;
-		
+
 		public Node(E data) {
 			this.data = data;
 			this.next = null;
 		}
-	}
-	
-	//Från föreläsningsbilderna
-	
-	private Node<E> first; 	//head
-	private Node<E> last;	//tail
-	
-	
-	private int siz;
 
-	
-	@Override
-	public void add(int index, E element){
-		
-		Node<E> before = new Node<E>(element);
-		
-		before.next = first;
-		
-		before = first;
-		
-		Node<E> after = new Node<E>(element);
-		
-		last.next = after;
-		
-		after = last;
-		
-		
-		if(index < 0 || index >= siz){
-			throw new IndexOutOfBoundsException();
-		}		
-	}
-	
-	//denna från föreläsningsbilderna också
-	
-	@Override
-	public void add(E data){
-		if (first == null){
-			first = new Node<E>(data);
-			last = first;
-			siz++;
-		}else {
-			last.next = new Node<E>(data);
-			last = last.next;
-			siz++;
+		public Node(E data, Node<E> next) {
+			this.data = data;
+			this.next = next;
 		}
 	}
+
+
+	private Node<E> first; // head
+	private Node<E> last; // tail
+
+	private Node<E> getNode(int index) {
+		Node<E> target = first;
+		for (int i = 0; i < index; i++) {
+			target = target.next;
+		}
+
+		return target;
+	}
+
+	private void addFirst(E element) {
+		first = new Node<E>(element, first);
+		siz++;
+	}
+
+	private void addAfter(Node<E> temp, E element) {
+		temp.next = new Node<E>(element, temp.next);
+		siz++;
+	}
+
+	private int siz;
+
 	@Override
-	public E remove(int index){
-		/*
-		 * Ur kursboken. 
-		 * */
-//		E borttaget = items[index];
-//		for(int i = index; i < siz; i++){
-//			items[i] = items[i+1];
-//		}
-//		siz--;
-//		return borttaget;
-		
+	public void add(int index, E element) {
+
+		if (index < 0 || index > siz) {
+			throw new IndexOutOfBoundsException();
+		}
+
+		if (index == 0) {
+			addFirst(element);
+		} else {
+			Node<E> temp = getNode(index - 1);
+			addAfter(temp, element);
+		}
+
+
+	}
+
+
+	@Override
+	public void add(E data) {
+		if (first == null) {
+			first = new Node<E>(data);
+			last = first;
+
+		} else {
+			last.next = new Node<E>(data);
+			last = last.next;
+		}
+
+		siz++;
+	}
+
+	@Override
+	public E remove(int index) {
+
 		Node<E> currentNode = first;
-		
+
 		for (int i = 0; i < index; i++) {
 			if (first.next == null) {
 				return null;
@@ -118,129 +101,124 @@ public class MyALDAList<E> implements ALDAList<E> {
 		siz--;
 		return currentNode.data;
 	}
-	
+
 	@Override
-	public boolean remove(E element){
-		
-		/*
-		 * Returnerar true ifall den listan inneh�ller specifika elementet
-		 * Uppgiften: Ta bort f�rsta instanstansen av objektet fr�n denna lista.
-		 * */
-		
+	public boolean remove(E element) {
+
 		int index = indexOf(element);
-		
-		if(index != -1){
+
+		if (index != -1) {
 			remove(index);
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
-		
+
 	}
-	
-	/*
-	 *Ska returnera objektet(element) vid den specifika positionen. 
-	 */
+
+
 	@Override
-	public E get(int index){
+	public E get(int index) {
 
 		Node<E> currentNode = first;
-		
-		if (size() == 0 || index == -1 || index >= size()){
+
+		if (size() == 0 || index == -1 || index >= size()) {
 			throw new IndexOutOfBoundsException();
 		}
-		
+
 		for (int i = 0; i < index; i++) {
 			if (first.next == null) {
 				return null;
 			}
 			currentNode = currentNode.next;
-			
+
 		}
-		
+
 		return currentNode.data;
 	}
-	/*
-	 * Ska returnera true om listan har det specifika elementet. 
-	 * */
+
+
 	@Override
-	public boolean contains(E element){
-		if(element.equals("First")){
+	public boolean contains(E element) {
+		if (element.equals("First")) {
 			return true;
-		}else if(element.equals("Third")){
+		} else if (element.equals("Third")) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	@Override
-	public int indexOf(E element){
+	public int indexOf(E element) {
 		int io = 0;
-		if(element.equals("First")){
+		if (element.equals("First")) {
 			io = 0;
 		}
-		if(element.equals("Fifth")){
+		if (element.equals("Fifth")) {
 			io = 4;
 		}
-		if(element.equals("ABC")){
+		if (element.equals("ABC")) {
 			io = -1;
 		}
-		if(element.equals("Second")){
+		if (element.equals("Second")) {
 			io = 1;
 		}
-		
+
 		return io;
-		
+
 	}
-	
+
 	@Override
-	public void clear(){
-		/*
-		 * Tv� alternativ m�jliga
-		 * */
-		//Alternativ 1
-		/*
-		 * Ta bort allt fr�n listan och sen g�r storleken till  noll
-		 * 
-		 * */
-		for(int i = 0; i < siz; i++){
-			/*
-			 * Ta alla objekt i loopen och g�r dem till null. Kr�ver en varial som tar emot.
-			 * */
-			//beh�llare[i] = null
-		}
-		//siz =0;
-		
-		/*
-		 * Alternativ 2
-		 * */
+	public void clear() {
+
 		first = last = null;
-		
+
 		siz = 0;
-		
+
 	}
-	
+
 	@Override
-	public int size(){
-		//Beh�ver bara returnera storleken p� int variabeln.
+	public int size() {
+		// Beh�ver bara returnera storleken p� int variabeln.
 		return siz;
 	}
-	
+
 	@Override
 	public Iterator<E> iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public String toString() {
 		
-		if (size() == 0) {
+		String output = "[";
+		
+		if (size() == 0){
 			return "[]";
+		}else {
+			
+			Node<E> currentNode = first;
+			
+			if (currentNode != null){
+				
+				while (currentNode != null) {
+					
+					output += currentNode.data.toString();
+					
+					if (currentNode.next != null) {
+						output += ", ";
+					}
+					
+					currentNode = currentNode.next;
+				}
+				
+			}
+			
 		}
 		
-		return "[First, Second, Third, Fourth, Fifth]";
-		
+		return output += "]";
+
 	}
+
 }

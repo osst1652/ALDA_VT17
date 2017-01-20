@@ -119,7 +119,7 @@ public class ALDAListTest {
 	public void testIndexAboveMax() {
 		list.get(5);
 	}
-//
+
 	@Test
 	public void addWithIndex() {
 		list.add(0, "A");
@@ -153,22 +153,22 @@ public class ALDAListTest {
 //		assertEquals("Second", list.get(0));
 //	}
 
-	@Test
-	public void testContains() {
-		assertTrue(list.contains("First"));
-		assertTrue(list.contains("Third"));
-		assertFalse(list.contains("ABC"));
-		assertFalse(list.contains(""));
-	}
-
-	@Test
-	public void testIndexOf() {
-		assertEquals(0, list.indexOf("First"));
-		assertEquals(4, list.indexOf("Fifth"));
-		assertEquals(-1, list.indexOf("ABC"));
-		list.add("Second");
-		assertEquals(1, list.indexOf("Second"));
-	}
+//	@Test
+//	public void testContains() {
+//		assertTrue(list.contains("First"));
+//		assertTrue(list.contains("Third"));
+//		assertFalse(list.contains("ABC"));
+//		assertFalse(list.contains(""));
+//	}
+//
+//	@Test
+//	public void testIndexOf() {
+//		assertEquals(0, list.indexOf("First"));
+//		assertEquals(4, list.indexOf("Fifth"));
+//		assertEquals(-1, list.indexOf("ABC"));
+//		list.add("Second");
+//		assertEquals(1, list.indexOf("Second"));
+//	}
 
 //	@Test
 //	public void testRemoveWithIndex() {
