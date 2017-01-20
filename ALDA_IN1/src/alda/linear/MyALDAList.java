@@ -69,7 +69,8 @@ public class MyALDAList<E> implements ALDAList<E> {
 
 	@Override
 	public void add(E data) {
-		if (first == null || last == null) {
+		
+		if (first == null) {
 			first = new Node<E>(data);
 			last = first;
 
