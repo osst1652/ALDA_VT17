@@ -292,42 +292,17 @@ public class ALDAListTest {
 		// each random operation in the test below.
 		assertEquals(oracle.size(), list.size());
 		for (int n = 0; n < oracle.size(); n++) {
-			System.err.println(list.toString() + "list");
-			System.err.println(oracle.toString() + "oracle");
 			assertEquals(oracle.get(n), list.get(n));
 
 		}
 		assertEquals(oracle.toString(), list.toString());
 	}
-	
-	
 
 	@Test
 	public void testMix() {
 		list.clear();
 		java.util.List<String> oracle = new java.util.ArrayList<String>();
-	
-//		oracle.add("Filip");
-//		list.add("Filip");
-//		oracle.add("Oskar");
-//		list.add("Oskar");
-//		oracle.add("Erik");
-//		list.add("Erik");
-//		
-//		
-//	
-//		
-//		System.err.println(oracle.toString());
-//		System.err.println(list.toString());
-//		
-//		System.err.println(oracle.get(1));
-//		System.err.println(list.get(1));
-//		
-//		testBeforeAndAfterRandomOperation(oracle);
-//	
-//	}
-	
-	
+
 		for (int n = 0; n < 1000; n++) {
 			String name = randomName();
 

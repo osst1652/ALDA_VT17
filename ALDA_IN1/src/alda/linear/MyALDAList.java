@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * @author Erik Sv√§rdson svardson@gmail.com
+ * @author Erik Sv‰rdson svardson@gmail.com
  * 
  * @author Filip Fellman filip.fellman@gmail.com
  * 
@@ -28,8 +28,8 @@ public class MyALDAList<E> implements ALDAList<E> {
 		}
 	}
 
-	private Node<E> first; // head
-	private Node<E> last; // tail
+	private Node<E> first;
+	private Node<E> last;
 	private int siz = 0;
 
 	private Node<E> getNode(int index) {
@@ -43,11 +43,18 @@ public class MyALDAList<E> implements ALDAList<E> {
 
 	private void addFirst(E element) {
 		first = new Node<E>(element, first);
+		if (siz == 0) {
+			last = first;
+		}
 		siz++;
 	}
 
 	private void addAfter(Node<E> temp, E element) {
 		temp.next = new Node<E>(element, temp.next);
+
+		if (temp == last) {
+			last = temp.next;
+		}
 		siz++;
 	}
 
@@ -60,6 +67,7 @@ public class MyALDAList<E> implements ALDAList<E> {
 
 		if (index == 0) {
 			addFirst(element);
+
 		} else {
 			Node<E> temp = getNode(index - 1);
 			addAfter(temp, element);
@@ -69,7 +77,7 @@ public class MyALDAList<E> implements ALDAList<E> {
 
 	@Override
 	public void add(E data) {
-		
+
 		if (first == null) {
 			first = new Node<E>(data);
 			last = first;
@@ -77,6 +85,7 @@ public class MyALDAList<E> implements ALDAList<E> {
 		} else {
 			last.next = new Node<E>(data);
 			last = last.next;
+
 		}
 
 		siz++;
